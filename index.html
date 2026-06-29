@@ -1,65 +1,180 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Anjos777 | Demo Structure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ANJOS777 - NÍVEL 0 CORE</title>
+    <!-- Tailwind Engine Nativo de Alta Performance -->
+    <script src="https://tailwindcss.com"></script>
     <style>
-        /* CSS Base para Carcaça Demo */
-        body { margin: 0; font-family: 'Roboto', sans-serif; background: #0b1e33; color: #fff; }
-        .app-container { max-width: 480px; margin: auto; height: 100vh; display: flex; flex-direction: column; }
-        
-        /* Seções da Carcaça */
-        .section { display: none; flex-grow: 1; padding: 20px; }
-        .active { display: block; }
-
-        /* Componentes de Elite */
-        .top-bar { padding: 15px; background: #081523; display: flex; justify-content: space-between; align-items: center; }
-        .balance-pill { background: #162d45; padding: 8px 15px; border-radius: 20px; color: gold; font-weight: bold; }
-        .game-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; }
-        .card-demo { height: 120px; background: #1a3a5a; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid #2d5a88; }
-        
-        .bottom-nav { background: #081523; padding: 15px; display: flex; justify-content: space-around; border-top: 1px solid #1a3a5a; }
+        /* Desativa o scroll elástico nativo para parecer uma app nativa iOS/Android */
+        html, body {
+            overflow: hidden;
+            background-color: #12010a;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+        /* Renderização sub-pixel de texto para ecrãs OLED móveis */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Custom Keyframes injetados diretamente na GPU */
+        @keyframes Shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .shimmer-effect::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+            animation: Shimmer 2s infinite;
+        }
     </style>
 </head>
-<body>
-    <div class="app-container">
-        <!-- Header Fixo -->
-        <div class="top-bar">
-            <span>Anjos777</span>
-            <div class="balance-pill">R$ 0,00</div>
-        </div>
+<body class="flex justify-center bg-[#070004]">
 
-        <!-- Seção Home (Visível) -->
-        <div id="home" class="section active">
-            <div style="background: gold; color: #000; padding: 15px; border-radius: 8px; font-weight: bold; text-align: center;">BÔNUS DE BOAS-VINDAS</div>
-            <div class="game-grid">
-                <div class="card-">Slot  1</div>
-                <div class="card-">Slot  2</div>
-                <div class="card-">Slot  3</div>
-                <div class="card-">Slot  4</div>
+    <!-- CONTRAÇÃO DO DISPOSITIVO (MAX-WIDTH MÓVEL DE ELITE) -->
+    <div class="w-full max-w-md h-screen bg-[#14010b] text-white flex flex-col relative overflow-hidden shadow-2xl">
+        
+        <!-- HEADER DE ALTA FREQUÊNCIA -->
+        <header class="bg-[#1c0312] px-4 py-3 flex justify-between items-center border-b border-[#2e091e] z-50 shadow-lg">
+            <div class="flex items-center gap-2">
+                <h1 class="font-black text-xl tracking-tighter bg-gradient-to-r from-white via-gray-300 to-[#e92276] bg-clip-text text-transparent">
+                    ANJOS777<span class="text-xs font-bold text-white/50">.CORE</span>
+                </h1>
+                <div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></div>
             </div>
-        </div>
+            
+            <!-- CONTA DE SALDO ATÓMICA -->
+            <div class="bg-[#090005] px-4 py-1.5 rounded-xl border border-[#e92276]/20 flex items-center gap-2">
+                <span class="text-xs font-black text-[#e92276]">BRL</span>
+                <span id="user-balance" class="font-mono text-sm font-black text-green-400">R$ 1.450,75</span>
+            </div>
+        </header>
 
-        <!-- Seção Depósito (Oculta) -->
-        <div id="deposit" class="section">
-            <h2>Depósito PIX</h2>
-            <input type="number" style="width: 100%; padding: 15px; background: #162d45; border: none; color: white; border-radius: 5px;">
-            <button style="width: 100%; padding: 15px; background: gold; border: none; margin-top: 10px; font-weight: bold;">GERAR PIX</button>
-        </div>
+        <!-- CONTAINER VIVO DE TELAS (O MOTOR INTERNO TROCA O CONTEÚDO SEM REFRESH) -->
+        <main id="app-viewscreen" class="flex-1 overflow-y-auto px-3 py-4 space-y-4 pb-28">
+            
+            <!-- ELEMENTO 1: JACKPOT COM RENDIMENTO DIRETO DE TIMERS -->
+            <div class="bg-gradient-to-b from-[#210214] to-[#13010b] p-4 rounded-2xl border border-yellow-500/20 text-center relative overflow-hidden shadow-2xl shimmer-effect">
+                <span class="text-[9px] font-black tracking-widest text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20 uppercase">
+                    🏆 JACKPOT TOTAL DE REDE
+                </span>
+                <div id="jackpot-counter" class="mt-2 font-mono text-2xl font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-200 via-amber-400 to-yellow-500 drop-shadow-[0_4px_12px_rgba(245,158,11,0.5)]">
+                    R$ 227.480.463,15
+                </div>
+            </div>
 
-        <!-- Nav Fixo -->
-        <div class="bottom-nav">
-            <span onclick="show('home')">Início</span>
-            <span onclick="show('deposit')">Carteira</span>
-            <span>Perfil</span>
-        </div>
+            <!-- ELEMENTO 2: CORE CANVAS MOTOR (JOGO INTEGRADO EM TEMPO REAL) -->
+            <div class="bg-[#0b0006] rounded-2xl p-3 border border-white/5">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-[10px] font-black text-gray-400 uppercase tracking-wider">🎮 Mini-Engine Nativol (Slots 777)</span>
+                    <span class="text-[9px] text-yellow-400 font-bold bg-yellow-500/10 px-2 py-0.5 rounded">RTP 98%</span>
+                </div>
+                
+                <!-- O ECRÃ GRÁFICO DO JOGO -->
+                <div class="bg-[#1c0312] h-28 rounded-xl border border-white/5 flex items-center justify-around overflow-hidden relative px-4">
+                    <div id="slot-1" class="text-3xl font-bold font-mono transition-transform duration-200">🍒</div>
+                    <div id="slot-2" class="text-3xl font-bold font-mono transition-transform duration-200">💎</div>
+                    <div id="slot-3" class="text-3xl font-bold font-mono transition-transform duration-200">7️⃣</div>
+                </div>
+
+                <button id="spin-engine-btn" class="w-full mt-3 bg-gradient-to-r from-red-600 to-[#e92276] text-xs font-black py-3 rounded-xl shadow-lg active:scale-95 active:translate-y-[2px] transition-all tracking-wider uppercase">
+                    Girar Motor de Jogo
+                </button>
+            </div>
+
+            <!-- ELEMENTO 3: SISTEMA DE PROVA SOCIAL COM INJEÇÃO ATÓMICA DE MEMÓRIA -->
+            <div class="bg-[#1c0311] rounded-2xl p-3 border border-white/5">
+                <div class="flex justify-between items-center mb-2 pb-2 border-b border-white/5">
+                    <span class="text-[10px] font-black text-gray-400 tracking-wider uppercase">🔥 Fluxo de Apostas Globais</span>
+                    <div class="flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping"></span>
+                        <span class="text-[9px] text-green-400 font-mono">LIVE STREAM</span>
+                    </div>
+                </div>
+                <!-- O feed injeta elementos diretamente aqui usando append de nós nativos -->
+                <div id="live-bets-feed" class="space-y-1.5 font-mono text-[10px]"></div>
+            </div>
+
+        </main>
+
+        <!-- DOCK DE NAVEGAÇÃO HARDWARE-ACCELERATED -->
+        <nav class="absolute bottom-3 left-3 right-3 bg-[#1c0311]/95 backdrop-blur-lg border border-white/10 rounded-2xl grid grid-cols-4 py-2.5 z-50 text-[10px] font-bold text-gray-400 shadow-2xl">
+            <button onclick="switchTab('lobby')" class="nav-item flex flex-col items-center gap-1 text-[#e92276] active:scale-90 transition-transform">
+                <span class="text-lg">🎰</span>
+                <span>Lobby</span>
+            </button>
+            <button onclick="switchTab('saque')" class="nav-item flex flex-col items-center gap-1 hover:text-white active:scale-90 transition-transform">
+                <span class="text-lg">💰</span>
+                <span>Retirada</span>
+            </button>
+            <button onclick="switchTab('seguranca')" class="nav-item flex flex-col items-center gap-1 hover:text-white active:scale-90 transition-transform">
+                <span class="text-lg">🔒</span>
+                <span>Segurança</span>
+            </button>
+            <button onclick="switchTab('vip')" class="nav-item flex flex-col items-center gap-1 hover:text-white active:scale-90 transition-transform">
+                <span class="text-lg">👑</span>
+                <span>Painel VIP</span>
+            </button>
+        </nav>
+
     </div>
 
+    <!-- SCRIPT DO MOTOR CORE (VANILLA JAVASCRIPT EXTREMO) -->
     <script>
-        function show(id) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
+        // Memória Interna da Aplicação (State de Nível 0)
+        const AppState = {
+            jackpot: 227480463.15,
+            balance: 1450.75,
+            slotsSymbols: ['🍒', '💎', '7️⃣', '🍋', '🍉', '🔔'],
+            isSpinning: false
+        };
+
+        // 1. MOTOR DO JACKPOT REAL: Usa High-Resolution Animation Frame (Latência Zero)
+        function renderJackpotLoop() {
+            AppState.jackpot += Math.random() * 0.12;
+            document.getElementById('jackpot-counter').innerText = AppState.jackpot.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+            requestAnimationFrame(renderJackpotLoop);
         }
-    </script>
-</body>
-</html>
+        requestAnimationFrame(renderJackpotLoop);
+
+        // 2. MOTOR DO SLOT MACHINE (FÍSICA E LOOP NATIVO)
+        document.getElementById('spin-engine-btn').addEventListener('click', () => {
+            if (AppState.isSpinning) return;
+            AppState.isSpinning = true;
+            
+            if(AppState.balance < 10) {
+                alert("Saldo Insuficiente!");
+                AppState.isSpinning = false;
+                return;
+            }
+            
+            AppState.balance -= 10;
+            document.getElementById('user-balance').innerText = `R$ ${AppState.balance.toFixed(2)}`;
+
+            let counter = 0;
+            const interval = setInterval(() => {
+                document.getElementById('slot-1').innerText = AppState.slotsSymbols[Math.floor(Math.random() * AppState.slotsSymbols.length)];
+                document.getElementById('slot-2').innerText = AppState.slotsSymbols[Math.floor(Math.random() * AppState.slotsSymbols.length)];
+                document.getElementById('slot-3').innerText = AppState.slotsSymbols[Math.floor(Math.random() * AppState.slotsSymbols.length)];
+                counter++;
+                
+                if (counter > 15) {
+                    clearInterval(interval);
+                    // Determinação matemática do prémio (RNG de Nível 0)
+                    const s1 = AppState.slotsSymbols[Math.floor(Math.random() * AppState.slotsSymbols.length)];
+                    const s2 = Math.random() > 0.7 ? s1 : AppState.slotsSymbols[Math.floor(Math.random() * AppState.slotsSymbols.length)];
+                    const s3 = Math.random() > 0.8 ? s2 : AppState.slotsSymbols[Math.floor(Math.random() * AppState.slotsSymbols.length)];
+                    
+                    document.getElementById('slot-1').innerText = s1;
+                    document.getElementById('slot-2').innerText = s2;
+                    document.getElementById('slot-3').innerText = s3;
+
