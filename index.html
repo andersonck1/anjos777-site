@@ -3,39 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anjos777 Holding Lda</title>
+    <title>Anjos777</title>
     <style>
         body { margin: 0; font-family: sans-serif; background-color: #0b1e33; color: white; }
-        .header { background: #1a3a5a; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .banner { background: #d4ac0d; color: black; padding: 20px; text-align: center; font-weight: bold; border-radius: 10px; margin: 10px; }
+        .header { background: #1a3a5a; padding: 15px; display: flex; justify-content: space-between; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; }
-        .game-card { background: #162d45; padding: 20px; border-radius: 8px; text-align: center; border: 1px solid #2d5a88; }
-        .finance-panel { background: #1a3a5a; padding: 20px; margin: 10px; border-radius: 10px; }
-        .btn-main { width: 100%; padding: 15px; background: #fcd535; border: none; border-radius: 5px; font-weight: bold; margin-top: 10px; }
-        .nav-bottom { position: fixed; bottom: 0; width: 100%; background: #0b1e33; display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid #1a3a5a; }
+        .game-card { background: #162d45; padding: 20px; border-radius: 8px; text-align: center; }
+        
+        /* Modal de Depósito (Oculto inicialmente) */
+        #deposit-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; }
+        .modal-content { background: #1a3a5a; padding: 20px; border-radius: 10px; width: 80%; }
     </style>
 </head>
 <body>
     <div class="header">
         <span>Anjos777.com</span>
-        <span>R$ 0,00</span>
+        <button onclick="document.getElementById('deposit-modal').style.display='flex'">Depositar</button>
     </div>
-    <div class="banner">BÔNUS: DEPÓSITO INICIAL GANHE R$</div>
+
     <div class="grid">
         <div class="game-card">JDB Slots</div>
         <div class="game-card">WG Esportes</div>
-        <div class="game-card">TADA Pesca</div>
-        <div class="game-card">Ezugi Vivo</div>
     </div>
-    <div class="finance-panel">
-        <h3>Depósito PIX</h3>
-        <input type="text" placeholder="Valor" style="width: 100%; padding: 10px;">
-        <button class="btn-main">Confirmar Depósito</button>
-    </div>
-    <div class="nav-bottom">
-        <div>Vivo</div>
-        <div>Esporte</div>
-        <div>Favoritos</div>
+
+    <!-- O formulário fica aqui, mas não aparece na tela principal -->
+    <div id="deposit-modal">
+        <div class="modal-content">
+            <h3>Depósito PIX</h3>
+            <input type="number" placeholder="Valor" style="width: 100%; padding: 10px;">
+            <button onclick="document.getElementById('deposit-modal').style.display='none'">Confirmar</button>
+        </div>
     </div>
 </body>
 </html>
