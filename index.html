@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anjos777 Holding Lda</title>
+    <!-- Script do Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <style>
+        body { background-color: #0b1a2f; color: #ffd700; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .form-box { background: #152d4d; padding: 20px; border-radius: 10px; text-align: center; }
+        input { margin: 10px 0; padding: 10px; border-radius: 5px; border: none; width: 80%; }
+        button { background: #ffd700; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h1>Anjos777 Holding Lda</h1>
+        <form id="loginForm">
+            <input type="text" placeholder="Número do Celular" required><br>
+            <input type="password" placeholder="Senha" required><br>
+            
+            <!-- Turnstile Captcha configurado -->
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAADsuG4WyJJueHn8Q" data-theme="dark"></div>
+            
+            <br>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>
