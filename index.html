@@ -1,26 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anjos777 - Painel Financeiro</title>
-    <style>
-        body { margin: 0; font-family: 'Arial', sans-serif; background-color: #0d1117; color: #fff; }
-        .finance-panel { background: #161b22; padding: 20px; border-radius: 15px; margin: 15px; border: 1px solid #30363d; }
-        .finance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
-        .btn-fin { padding: 15px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; text-align: center; }
-        .btn-deposit { background: linear-gradient(135deg, #fcd535, #d4ac0d); color: #000; }
-        .btn-withdraw { background: #21262d; color: #fff; border: 1px solid #30363d; }
-        h3 { margin: 0 0 10px 0; font-size: 16px; color: #8b949e; }
-    </style>
-</head>
-<body>
-    <div class="finance-panel">
-        <h3>Painel de Transações</h3>
-        <div class="finance-grid">
-            <button class="btn-fin btn-deposit">Depósito PIX</button>
-            <button class="btn-fin btn-withdraw">Saque</button>
-        </div>
+<style>
+    /* Estilo para a grade de valores */
+    .amount-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px; }
+    .amount-btn { 
+        background: #252d3d; border: 1px solid #334056; color: #fff; 
+        padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer;
+    }
+    .amount-btn:active { background: #fcd535; color: #000; }
+</style>
+
+<div class="finance-panel">
+    <h3>Escolha o valor do depósito</h3>
+    <div class="amount-grid">
+        <button class="amount-btn">R$ 10</button>
+        <button class="amount-btn">R$ 20</button>
+        <button class="amount-btn">R$ 50</button>
+        <button class="amount-btn">R$ 100</button>
     </div>
-</body>
-</html>
+</div>
