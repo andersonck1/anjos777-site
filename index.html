@@ -3,29 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anjos777 Holding Lda</title>
-    <!-- Script do Cloudflare Turnstile -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <title>Anjos777 - Painel Financeiro</title>
     <style>
-        body { background-color: #0b1a2f; color: #ffd700; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .form-box { background: #152d4d; padding: 20px; border-radius: 10px; text-align: center; }
-        input { margin: 10px 0; padding: 10px; border-radius: 5px; border: none; width: 80%; }
-        button { background: #ffd700; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; }
+        body { margin: 0; font-family: 'Arial', sans-serif; background-color: #0d1117; color: #fff; }
+        .finance-panel { background: #161b22; padding: 20px; border-radius: 15px; margin: 15px; border: 1px solid #30363d; }
+        .finance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .btn-fin { padding: 15px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; text-align: center; }
+        .btn-deposit { background: linear-gradient(135deg, #fcd535, #d4ac0d); color: #000; }
+        .btn-withdraw { background: #21262d; color: #fff; border: 1px solid #30363d; }
+        h3 { margin: 0 0 10px 0; font-size: 16px; color: #8b949e; }
     </style>
 </head>
 <body>
-    <div class="form-box">
-        <h1>Anjos777 Holding Lda</h1>
-        <form id="loginForm">
-            <input type="text" placeholder="Número do Celular" required><br>
-            <input type="password" placeholder="Senha" required><br>
-            
-            <!-- Turnstile Captcha configurado -->
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAADsuG4WyJJueHn8Q" data-theme="dark"></div>
-            
-            <br>
-            <button type="submit">Entrar</button>
-        </form>
+    <div class="finance-panel">
+        <h3>Painel de Transações</h3>
+        <div class="finance-grid">
+            <button class="btn-fin btn-deposit">Depósito PIX</button>
+            <button class="btn-fin btn-withdraw">Saque</button>
+        </div>
     </div>
 </body>
 </html>
