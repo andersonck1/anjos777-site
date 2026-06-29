@@ -2,36 +2,64 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anjos777 Holding Lda</title>
+    <title>Anjos777 | Demo Structure</title>
     <style>
-        body { margin: 0; font-family: sans-serif; background-color: #0b1e33; color: white; }
-        .header { background: #1a3a5a; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #0b1e33; }
-        .banner { background: #fcd535; color: #000; padding: 15px; text-align: center; font-weight: bold; margin: 10px; border-radius: 8px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; }
-        .card { background: #162d45; padding: 25px 10px; border-radius: 8px; text-align: center; border: 1px solid #2d5a88; }
-        .nav-bottom { position: fixed; bottom: 0; width: 100%; background: #1a3a5a; display: flex; justify-content: space-around; padding: 15px 0; border-top: 2px solid #0b1e33; }
+        /* CSS Base para Carcaça Demo */
+        body { margin: 0; font-family: 'Roboto', sans-serif; background: #0b1e33; color: #fff; }
+        .app-container { max-width: 480px; margin: auto; height: 100vh; display: flex; flex-direction: column; }
+        
+        /* Seções da Carcaça */
+        .section { display: none; flex-grow: 1; padding: 20px; }
+        .active { display: block; }
+
+        /* Componentes de Elite */
+        .top-bar { padding: 15px; background: #081523; display: flex; justify-content: space-between; align-items: center; }
+        .balance-pill { background: #162d45; padding: 8px 15px; border-radius: 20px; color: gold; font-weight: bold; }
+        .game-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; }
+        .card-demo { height: 120px; background: #1a3a5a; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid #2d5a88; }
+        
+        .bottom-nav { background: #081523; padding: 15px; display: flex; justify-content: space-around; border-top: 1px solid #1a3a5a; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <span>Anjos777.com</span>
-        <button onclick="alert('Abrindo Depósito...')">Depositar</button>
+    <div class="app-container">
+        <!-- Header Fixo -->
+        <div class="top-bar">
+            <span>Anjos777</span>
+            <div class="balance-pill">R$ 0,00</div>
+        </div>
+
+        <!-- Seção Home (Visível) -->
+        <div id="home" class="section active">
+            <div style="background: gold; color: #000; padding: 15px; border-radius: 8px; font-weight: bold; text-align: center;">BÔNUS DE BOAS-VINDAS</div>
+            <div class="game-grid">
+                <div class="card-">Slot  1</div>
+                <div class="card-">Slot  2</div>
+                <div class="card-">Slot  3</div>
+                <div class="card-">Slot  4</div>
+            </div>
+        </div>
+
+        <!-- Seção Depósito (Oculta) -->
+        <div id="deposit" class="section">
+            <h2>Depósito PIX</h2>
+            <input type="number" style="width: 100%; padding: 15px; background: #162d45; border: none; color: white; border-radius: 5px;">
+            <button style="width: 100%; padding: 15px; background: gold; border: none; margin-top: 10px; font-weight: bold;">GERAR PIX</button>
+        </div>
+
+        <!-- Nav Fixo -->
+        <div class="bottom-nav">
+            <span onclick="show('home')">Início</span>
+            <span onclick="show('deposit')">Carteira</span>
+            <span>Perfil</span>
+        </div>
     </div>
 
-    <div class="banner">BÔNUS INICIAL: GANHE 17777 R$</div>
-
-    <div class="grid">
-        <div class="card">JDB Slots</div>
-        <div class="card">WG Esportes</div>
-        <div class="card">TADA Pesca</div>
-        <div class="card">Ezugi Vivo</div>
-    </div>
-
-    <div class="nav-bottom">
-        <span>Vivo</span>
-        <span>Esporte</span>
-        <span>Favoritos</span>
-    </div>
+    <script>
+        function show(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
 </body>
 </html>
